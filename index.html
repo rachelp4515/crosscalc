@@ -20,14 +20,15 @@
 <div class="content">
 <img src='runway.png'>
 <section id='all-sections'>
-    <section id='home'>
-        <h2> Home </h2>
-        <p> /put a description here, what the calculators are used for, formulas, etc/ </p>
-    </section>
+    
     <section id='pivotal'>
         <div class='pivInput'>
-            <h2> ground speed </h2>
+            <h2> Ground Speed </h2>
             <input type='number' id='gsInput' placeholder='ground speed'>
+            <select id='select'>
+                <option>knots</option>
+                <option>MPH</option>
+            </select>
             <h2> Ground Elevation</h2>
             <input type='number' id='elevInput' placeholder='ground elevation'>
         </div>
@@ -35,25 +36,38 @@
             <h2> Pivotal Altitude </h2>
             <p id='pivDisplay'></p>
         </div>
-
     </section>
+
     <section id='crosswind'>
         <div class='crossInput'>
             <h2> wind speed </h2>
-            <input type='number' id='windSpeed' placeholder='miles per hour'>
+            <input type='number' id='windSpeed' placeholder='knots'>
             <h2> wind direction </h2>
             <input type='number' id='windDirection' min='0' max='360'  placeholder='between 0 and 360'>
             <h2> Runway Number </h2>
             <input type='number' min='0' max='36' id='runway' placeholder='between 0 and 36'>
         </div>
         <div class='crossOutput'>
-            <h2> Crosswind Component </h2>
+            <h2 > Crosswind Component </h2>
             <p id='cross'> </p>
-            <h2> Headwind Component </h2>
+            <h2 id='crossheader'> Headwind Component </h2>
             <p id='head'> </p>
         </div>
     </section>
-</section>
+    
+    <section id='about'>
+        <h2> About </h2>
+        <p> Pivotal alitiude is a formula necessary to perfom 'eights on pylons.' Eights 
+            on Pylons develop the ability to maneuver the airplane accurately, 
+            while dividing your attention between the flight path and the selected 
+            points on the ground perfecting the knowledge of the effect of angle of bank 
+            on radius of turn. <br> Determining crosswind angles is important, for any plane, 
+            any flight. When you are faced with crosswinds along your anticipated route of flight, 
+            knowing the crosswind component will help you calculate fuel requirements. It's 
+            important to ensure that proper fuel amounts are uplifted based on the wind component 
+            of your flight plan.</p>
+    </section>
+
 <img src='runway.png'>
 </div>
 <script src='script.js'></script>    

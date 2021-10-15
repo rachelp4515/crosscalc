@@ -11,18 +11,28 @@ const allElements = document.querySelector('#all-sections');
 allElements.addEventListener('input', displayThings);
 
 
-function pivCalc(gsInput, elevInput){
-    gsInput = parseFloat(gsInput);
-    elevInput = parseFloat(elevInput);
-    pivAlt = ((gsInput * gsInput) / 15) + elevInput;
-    return parseInt(pivAlt);
+function pivCalc(gsInput, elevInput, select){
+    if (select.value == 'knots'){
+        gsInput = parseFloat(gsInput);
+        elevInput = parseFloat(elevInput);
+        pivAlt = ((gsInput * gsInput) / 15) + elevInput;
+        return parseInt(pivAlt);
+    }
+    else{
+        gsInput = parseFloat(gsInput);
+        elevInput = parseFloat(elevInput);
+        pivAlt = ((gsInput * gsInput) / 11.3) + elevInput;
+        return parseInt(pivAlt);
+    }
 }
+
 function crossCalc(windspeed, winddirection, runway){
     winds = winddirection - runway;
     wind = (winds * Math.PI)/ 180;
     cross = windspeed * Math.sin(wind);
     return cross.toFixed(2);
 }
+
 function headCalc(windspeed, winddirection, runway){
     winds = winddirection - runway;
     wind = (winds * Math.PI)/ 180;
@@ -32,8 +42,14 @@ function headCalc(windspeed, winddirection, runway){
 
 function displayThings(){
     pivDisplay.innerHTML = pivCalc(gsInput.value, elevInput.value);   
-    crossOutput.innerHTML = crossCalc(windSpeed.value, windDirection.value, runway.value);
-    headOutput.innerHTML = headCalc(windSpeed.value, windDirection.value, runway.value);
+    crossOutput.innerHTML = `${crossCalc(windSpeed.value, windDirection.value, runway.value)} knots`
+    CH = parseFloat(headCalc(windSpeed.value, windDirection.value, runway.value))
+    if (CH < 0){
+        headOutput.innerHTML = `${headCalc(windSpeed.value, windDirection.value, runway.value) * -1} knots`
+        crosshead.innerHTML = 'Tailwind'
+    }
+    else{
+        headOutput.innerHTML = `${headCalc(windSpeed.value, windDirection.value, runway.value)} knots`
+        crosshead.innerHTML = 'Headwind'
+    }
 }
-
-
