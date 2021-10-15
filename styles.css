@@ -14,7 +14,7 @@ body{
 }
 
 
-section:not(#all-sections){
+section:not(.all-sections){
     display: flex;
     align-items: center;
     padding: 20px;
@@ -76,5 +76,4 @@ input{
     background-color: rgba(0, 88, 88, 0.692);
     max-height: 400px;
     border-radius:20px;
-
 }

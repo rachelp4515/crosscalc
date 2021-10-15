@@ -19,13 +19,13 @@
 <div class="content">
 <img src='runway.png'>
 
-<section id='all-sections'>
+<section class='all-sections'>
 
     <section id='pivotal'>
         <div class='pivInput'>
             <h2> Ground Speed </h2>
             <input type='number' id='gsInput' placeholder='ground speed'>
-            <select id='select'>
+            <select class='select'>
                 <option>knots</option>
                 <option>MPH</option>
             </select>
@@ -34,7 +34,7 @@
         </div>
         <div class='pivOutput'>
             <h2> Pivotal Altitude </h2>
-            <p id='pivDisplay'></p>
+            <p class='pivDisplay'></p>
         </div>
     </section>
 
@@ -48,10 +48,10 @@
             <input type='number' min='0' max='36' id='runway' placeholder='between 0 and 36'>
         </div>
         <div class='crossOutput'>
-            <h2 > Crosswind Component </h2>
-            <p id='cross'> </p>
-            <h2 id='crossheader'> Headwind Component </h2>
-            <p id='head'> </p>
+            <h2> Crosswind Component </h2>
+            <p class='cross'> </p>
+            <h2 class='crossheader'> Headwind Component </h2>
+            <p class='head'> </p>
         </div>
     </section>
     
@@ -69,6 +69,7 @@
     </section>
 
 </section>
+
 <img src='runway.png'>
 </div>
 <script src='script.js'></script>    

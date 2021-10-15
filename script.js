@@ -1,18 +1,21 @@
 const gsInput = document.querySelector('#gsInput');
 const elevInput = document.querySelector('#elevInput');
-const pivDisplay = document.querySelector('#pivDisplay');
+const pivDisplay = document.querySelector('.pivDisplay');
 const windSpeed = document.querySelector('#windSpeed');
 const windDirection = document.querySelector('#windDirection');
 const runway = document.querySelector('#runway');
-const crossOutput = document.querySelector('#cross');
-const headOutput = document.querySelector('#head');
-const allElements = document.querySelector('#all-sections');
+const crossOutput = document.querySelector('.cross');
+const headOutput = document.querySelector('.head');
+const allElements = document.querySelector('.all-sections');
+const crosshead = document.querySelector('.crossheader')
+const select = document.querySelector('.select')
+
 
 allElements.addEventListener('input', displayThings);
 
 
 function pivCalc(gsInput, elevInput, select){
-    if (select.value == 'knots'){
+    if (select == 'knots'){
         gsInput = parseFloat(gsInput);
         elevInput = parseFloat(elevInput);
         pivAlt = ((gsInput * gsInput) / 15) + elevInput;
@@ -41,7 +44,7 @@ function headCalc(windspeed, winddirection, runway){
 }
 
 function displayThings(){
-    pivDisplay.innerHTML = pivCalc(gsInput.value, elevInput.value);   
+    pivDisplay.innerHTML = pivCalc(gsInput.value, elevInput.value, select.value);   
     crossOutput.innerHTML = `${crossCalc(windSpeed.value, windDirection.value, runway.value)} knots`
     CH = parseFloat(headCalc(windSpeed.value, windDirection.value, runway.value))
     if (CH < 0){
